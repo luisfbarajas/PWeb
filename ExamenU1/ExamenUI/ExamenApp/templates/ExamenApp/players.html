@@ -1,0 +1,46 @@
+{% extends 'ExamenApp/base.html' %}
+{% load static %}
+
+{% block title %} Programacion Web | Jugadores {% endblock %}
+
+{% block content %}
+<h3 class="text text-center p-5"> Jugadores regitrados</h3>
+
+<div class="container">
+        <table class="table table-striped">
+                <thead>
+                  <tr>
+        
+                    <th scope="col">Nombre</th>
+        
+                    <th scope="col">Equipo</th>
+                    <th scope="col"> Posicion</th>
+                    <th scope="col"> Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+{% for player in players %}
+<tr >
+            
+        <td>
+            {{player.NamePlayer}}
+            
+        </td>
+        <td>
+            {{player.Id_Team.NameTeam}}
+        </td>
+        <td>
+            {{player.position}}
+        </td>
+        <td>
+            <a class = "btn btn-outline-primary" href="{% url 'detail' id=player.id %}">Ver más</a>
+        </td>
+
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+
+</div>
+
+{% endblock %}

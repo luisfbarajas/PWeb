@@ -1,0 +1,19 @@
+{% extends 'ExamenApp/base.html' %}
+{% load static %}
+
+{% block title %} Programacion Web | Detalle Jugador {% endblock %}
+
+{% block content %}
+<h3 class="text text-center p-5">Jugador</h3>
+
+<div class="container">
+<p><strong><label>Nombre: &nbsp;</label></strong> {{player.NamePlayer}}</p>
+<p><strong><label>Posicion: &nbsp;</label></strong> {{player.position}}</p>
+<p><strong><label>Experiencia: &nbsp;</label></strong> {{player.experience}}</p>
+<p><strong><label>Edad:&nbsp; </label></strong>{{player.Age}}</p>
+<p><strong><label>Peso:&nbsp; </label></strong>{{player.weigth}}</p>
+<p><strong><label>Altura:&nbsp; </label></strong>{{player.heigth}}</p>
+<a href="/players" class="btn btn-outline-danger btn-block">Volver</a>
+</div>
+
+{% endblock %}

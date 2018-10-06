@@ -1,0 +1,44 @@
+{% extends 'ExamenApp/base.html' %}
+{% load static %}
+
+{% block title %} Programacion Web | Teams {% endblock %}
+
+{% block content %}
+
+<h3 class="text text-center p-5">Equipos registrados</h3>
+<div class="container">
+<table class="table table-striped">
+        <thead>
+          <tr>
+
+            <th scope="col">Nombre</th>
+            <th scope="col" class="w-custom-widthTable">Numero de jugadores</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+{% for team in teams %}
+            <tr >
+            
+                <td>
+                    {{team.NameTeam}}
+                    
+                    
+                </td>
+                <td>
+                    {{team.NumberPlayers}}
+                      
+                </td>
+                <td>
+                    <a href="{% url 'detailTeam' id=team.id %}" class="btn btn-outline-primary ">Ver más...</a>
+                
+                </td>
+            </tr>
+            
+
+
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}

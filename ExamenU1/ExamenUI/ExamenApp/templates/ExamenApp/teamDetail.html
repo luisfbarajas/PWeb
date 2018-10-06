@@ -1,0 +1,19 @@
+{% extends 'ExamenApp/base.html' %}
+{% load static %}
+
+{% block title %} Programacion Web | Detalle Equipo {% endblock %}
+
+{% block content %}
+<h3 class="text text-center p-5">Equipo</h3>
+
+<div class="container">
+                <p><strong><label>Nombre: &nbsp;</label></strong> {{team.NameTeam}}</p>
+                <p><strong><label>Numero de jugadores: &nbsp;</label></strong> {{team.NumberPlayers}} <small>Numero ficticio</small></p>
+                <p><strong><label>fundacion: &nbsp;</label></strong> {{team.foundation}}</p>
+                <p><strong><label>Propietario:&nbsp; </label></strong>{{team.owner}}</p>
+                <p><strong><label>Division:&nbsp; </label></strong>{{team.divition}}</p>
+              
+
+        <a href="/teams" class="btn btn-outline-danger btn-block">Volver</a>
+</div>
+{% endblock %}

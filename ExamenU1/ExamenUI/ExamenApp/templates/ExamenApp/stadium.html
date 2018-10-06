@@ -1,0 +1,43 @@
+{% extends 'ExamenApp/base.html' %}
+{% load static %}
+
+{% block title %} Programacion Web | Estadios {% endblock %}
+
+{% block content %}
+<h3 class="text text-center p-5"> Estadios regitrados</h3>
+
+<div class="container">
+<table class="table table-striped">
+        <thead>
+          <tr>
+
+            <th scope="col">Nombre</th>
+            <th scope="col">Equipo</th>
+            <th scope="col">Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+{% for stadium in stadiums %}
+<tr >
+            
+        <td>
+            {{stadium.NameStadium}}
+            
+        </td>
+        <td>
+            {{stadium.Id_Team.NameTeam}}
+        </td>
+        <td>
+           <a href="{% url 'detailStadium' id=stadium.id %}" class="btn btn-outline-primary">Ver más...</a>
+              
+        </td>
+
+    </tr>
+
+{%endfor%}
+</tbody>
+</table>
+</div>
+
+
+{% endblock %}

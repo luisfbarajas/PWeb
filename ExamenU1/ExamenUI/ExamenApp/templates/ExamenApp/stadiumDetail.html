@@ -1,0 +1,19 @@
+{% extends 'ExamenApp/base.html' %}
+{% load static %}
+
+{% block title %} Programacion Web | Detalle Estadio {% endblock %}
+
+{% block content %}
+<h3 class="text text-center p-5">Estadio</h3>
+
+<div class="container">
+  <p><strong><label>Nombre: &nbsp;</label></strong> {{stadium.NameStadium}}</p>
+  <p><strong><label>localizacion: &nbsp;</label></strong> {{stadium.Location}}</p>
+  <p><strong><label>Propietario: &nbsp;</label></strong> {{stadium.owner}}</p>
+  <p><strong><label>Apertura:&nbsp; </label></strong>{{stadium.opening}}</p>
+  <p><strong><label>Capacidad:&nbsp; </label></strong>{{stadium.capacity}}</p>
+
+
+        <a href="/stadium" class="btn btn-outline-danger btn-block">Volver</a>
+</div>
+{% endblock %}

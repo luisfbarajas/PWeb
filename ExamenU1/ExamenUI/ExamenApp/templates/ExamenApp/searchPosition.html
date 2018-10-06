@@ -1,0 +1,52 @@
+{% extends 'ExamenApp/base.html' %}
+{% load static %}
+
+{% block title %} Programacion Web | Busqueda por posicion {% endblock %}
+
+{% block content %}
+<h3 class="text-center my-5">Busqueda por posición</h3>
+<div class="container">
+    <form class="PlayerForm" method="POST">
+        {% csrf_token %}
+        <div class="col-md-3">
+            {{ form}}
+        </div>
+        
+        <button type="submit" class="btn btn-outline-info m-3">Buscar</button>
+
+</form>
+<table class="table table-striped">
+    <thead>
+      <tr>
+
+        <th scope="col">Nombre</th>
+
+        <th scope="col">Equipo</th>
+        <th scope="col"> Posicion</th>
+        <th scope="col"> Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+{% for player in players %}
+<tr >
+            
+        <td>
+            {{player.NamePlayer}}
+            
+        </td>
+        <td>
+            {{player.Id_Team.NameTeam}}
+        </td>
+        <td>
+            {{player.position}}
+        </td>
+        <td>
+            <a class = "btn btn-outline-primary" href="{% url 'detail' id=player.id %}">Ver más</a>
+        </td>
+
+    </tr>
+{% endfor %}
+</tbody>
+</table>
+</div>
+{% endblock %}
