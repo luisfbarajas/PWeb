@@ -5,6 +5,54 @@
 {% block content %}
 <div class="container">
     <h3 class="text-center my-5">Actividades</h3>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Lider</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Inicio</th>
+            <th scope="col">Termina</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for activitie in activities %}
+            <tr>
+                <td>
+                    {{activitie.id}}
+                </td>
+                <td>
+                    {{activitie.actName}}
+                </td>
+                <td>
+                    {{activitie.lead}}
+                </td>
+                {%if activitie.status == "TODO"%}
+                <td class="text-primary">
+                    {{activitie.status}}
+                </td>
+                {%endif%}
+                {%if activitie.status == "In Progress"%}
+                <td class="text-warning">
+                    {{activitie.status}}
+                </td>
+                {%endif%}
+                {%if activitie.status == "Done"%}
+                <td class="text-success">
+                    {{activitie.status}}
+                </td>
+                {%endif%}
+                <td>
+                    {{activitie.start}}
+                </td>
+                <td>
+                    {{activitie.end}}
+                </td>
+            </tr>
+        {% endfor%}
+        </tbody>
+      </table>
 </div>
 
 {% endblock %}

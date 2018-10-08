@@ -5,5 +5,61 @@
 {% block content %}
 <div class="container">
     <h3 class="text-center my-5">Reportes</h3>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Equipo</th>
+            <th scope="col">Actividad Actual</th>
+            <th scope="col">Estatus</th>
+            <th scope="col">Inicio</th>
+            <th scope="col">Termina</th>
+            <th scope="col">Actividades terminadas</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for persona in personal %}
+            <tr>
+                <td>
+                    {{persona.id}}
+                </td>
+                <td>
+                    {{persona.name}}
+                </td>
+                <td>
+                    {{persona.jobTeam}}
+                </td>               
+                <td>
+                    {{persona.activitie.actName}}
+                </td>
+                {% if persona.activitie.status == "TODO" %}
+                <td class="text-primary">
+                    {{persona.activitie.status}}
+                </td>
+                {%endif%}
+                {% if persona.activitie.status == "In Progress" %}
+                <td class="text-warning">
+                    {{persona.activitie.status}}
+                </td>
+                {%endif%}
+                {% if persona.activitie.status == "Done" %}
+                <td class="text-success">
+                    {{persona.activitie.status}}
+                </td>
+                {%endif%}
+                <td>
+                    {{persona.activitie.start}}
+                </td>
+                <td>
+                    {{persona.activitie.end}}
+                </td>
+                <td>
+                    {{persona.finishJob}}
+                </td>
+            </tr>
+        {% endfor%}
+        </tbody>
+      </table>
 </div>
 {% endblock %}

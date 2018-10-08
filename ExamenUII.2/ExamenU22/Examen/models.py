@@ -18,7 +18,7 @@ class Personal(models.Model):
     job = models.CharField(max_length=255)
     jobTeam = models.CharField(max_length=255)
     activitie = models.ForeignKey(Activities, on_delete = models.CASCADE)
-
+    finishJob = models.IntegerField()
     class Meta:
          db_table = 'Personal'
 
