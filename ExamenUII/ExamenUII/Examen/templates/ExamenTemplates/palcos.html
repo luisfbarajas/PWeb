@@ -3,5 +3,39 @@
 
 {% block title %} Programacion Web | Palcos {% endblock %}
 {% block content %}
-
+<div class="container">
+        <h3 class="text-center mt-5">Palcos</h3>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Capacidad</th>
+                <th scope="col">Ubicacion</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for pal in palco %}
+                <tr>
+                    <td>
+                        {{pal.id}}
+                    </td>
+                    <td>
+                        {{pal.palcoName}}
+                    </td>
+                    <td>
+                        {{pal.Category}}
+                    </td>
+                    <td>
+                        {{pal.capacity}}
+                    </td>
+                    <td>
+                        {{pal.location}}
+                    </td>
+                </tr>
+            {% endfor%}
+            </tbody>
+          </table>
+    </div>
 {% endblock %}

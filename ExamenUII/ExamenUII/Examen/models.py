@@ -27,7 +27,7 @@ class Fanatics(models.Model):
     age =models.IntegerField()
     adress = models.CharField(max_length = 255)
     team = models.CharField(max_length = 255)
-    palco = models.ForeignKey(Palco, on_delete= models.CASCADE)
+    palco = models.ForeignKey(Palco, on_delete= models.CASCADE, null=True, blank=True)
     dateFan = models.DateTimeField(auto_now_add=True)
     seat = models.ForeignKey(seat, on_delete = models.CASCADE)
 

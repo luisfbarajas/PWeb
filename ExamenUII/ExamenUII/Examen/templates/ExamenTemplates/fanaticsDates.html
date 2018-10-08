@@ -3,5 +3,13 @@
 
 {% block title %} Programacion Web | Fanaticos por fecha {% endblock %}
 {% block content %}
+<form  method="POST" class="mt-5">
+    {% csrf_token %}
+    <div class="col-md-3">
+        {{ form }}
+    </div>
+    
+    <button type="submit" class="btn btn-outline-info m-3">Buscar</button>
 
+</form>
 {% endblock %}

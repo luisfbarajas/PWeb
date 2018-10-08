@@ -3,5 +3,48 @@
 
 {% block title %} Programacion Web | Busqueda de palco {% endblock %}
 {% block content %}
+<div class="container">
+    <form  method="POST" class="mt-5">
+        {% csrf_token %}
+        <div class="col-md-3">
+            {{ form }}
+        </div>
+        
+        <button type="submit" class="btn btn-outline-info m-3">Buscar</button>
+
+</form>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Categoria</th>
+        <th scope="col">Ubicacion</th>
+        <th scope="col">Capacidad</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for palco in palcos %}
+        <tr>
+            <td>
+                {{palco.id}}
+            </td>
+            <td>
+                {{palco.palcoName}}
+            </td>
+            <td>
+                {{palco.Category}}
+            </td>
+            <td>
+                {{palco.location}}
+            </td>
+            <td>
+                {{palco.capacity}}
+            </td>
+        </tr>
+    {% endfor%}
+    </tbody>
+  </table>
+</div>
 
 {% endblock %}

@@ -3,5 +3,35 @@
 
 {% block title %} Programacion Web | Asientos {% endblock %}
 {% block content %}
-
+<div class="container">
+        <h3 class="text-center mt-5">Palcos</h3>
+        <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Numero</th>
+                <th scope="col">Categoria</th>
+                <th scope="col">Ubicacion</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for seat in seats %}
+                <tr>
+                    <td>
+                        {{seat.id}}
+                    </td>
+                    <td>
+                        {{seat.number}}
+                    </td>
+                    <td>
+                        {{seat.Category}}
+                    </td>
+                    <td>
+                        {{seat.location}}
+                    </td>
+                </tr>
+            {% endfor%}
+            </tbody>
+          </table>
+    </div>
 {% endblock %}
