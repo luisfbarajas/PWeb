@@ -34,9 +34,9 @@ def palcos(request):
     return render(request,'ExamenTemplates/palcos.html',{"palco":palco})
 
 def palcosSearch(request):
+     palcos=None
      if request.method == 'POST':
-         form = SearchPalco(request.POST)
-         
+         form = SearchPalco(request.POST)    
          if form.is_valid(): 
              NamePalco = form.cleaned_data('palco')
              palcos = Palco.objects.filter(palcoName=NamePalco)        
