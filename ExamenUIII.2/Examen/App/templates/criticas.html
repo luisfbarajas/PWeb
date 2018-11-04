@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Programacion Web | Criticas
+{% endblock title %}
+    
+
+{% block content %}
+    <div class="container mt-5 text-center">
+        <h3>Cual es tu Critica</h3>
+        <form method="POST" class="mt-5">
+            {% csrf_token %}
+            <div class="row">
+                {{form}}
+                <button type="submit" class="btn btn-outline-danger mt-2 btn-block">Criticar!!!!!</button>
+            </div>
+        </form>
+    </div>
+{% endblock content %}
+    
