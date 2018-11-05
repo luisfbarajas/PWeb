@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+    Programacion Web|RelacionEmpleado-Proyecto
+{% endblock  %}
+
+{% block content %}
+    <div class="container">
+        <h3 class="text-center mt-5">Relacion empleado-proyecto</h3>
+
+        <table class="table table-striped mt-5">
+                <thead>
+                    <th>
+                        Nombre del proyecto
+                    </th>
+                    <th>Lider</th>
+                    <th> Programador</th>
+                </thead>
+                <tbody>
+                    
+                    {% for r in relacionempleado  %}
+                    <tr>
+                            <td>{{r.name}}</td>
+                            <td>{{r.lider}}</td>
+                            <td>{{r.trabaja.name}}</td>
+                        </tr>
+                    {% endfor %}
+                        
+                    
+                </tbody>
+            </table>
+    </div>
+{% endblock content %}
+    
+    

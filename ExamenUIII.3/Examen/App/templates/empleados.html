@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+   Programacion Web|Empleados 
+{% endblock title %}
+    
+
+{% block content %}
+    <div class="container">
+        <h3 class="text-center mt-5">Empleados </h3>
+
+        <table class="table table-striped mt-5">
+            <thead>
+                <th>Nombre</th>
+                <th>Puesto</th>
+                <th>Carrera</th>
+                <th>Antiguedad</th>
+            </thead>
+            <tbody>
+                
+                {% for empleado in emple %}
+                <tr>
+                        <td>{{empleado.name}}</td>
+                        <td>{{empleado.puesto}}</td>
+                        <td>{{empleado.carrera}}</td>
+                        <td>{{empleado.antiguedad}} años</td>
+                    </tr>
+                {% endfor %}
+                    
+                
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+    

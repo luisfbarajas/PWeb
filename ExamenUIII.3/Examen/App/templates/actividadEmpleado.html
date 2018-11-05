@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}
+Programacion Web|Empleado-Actividad    
+{% endblock title %}
+    
+    {% block content %}
+        <div class="container">
+            <h3 class="text-center mt-5">Relacion Empleado-Actividad</h3>
+            <table class="table tabler-striped mt-5">
+                <thead>
+                    <th>Empleado</th>
+                    <th>Puesto</th>
+                    <th>Actividad</th>
+                </thead>
+                <tbody>
+                    
+                    {% for a in actividade %}
+                        <tr>
+                            <td>{{a.empleado.name}}</td>
+                            <td>{{a.empleado.puesto}}</td>
+                            <td>{{a.name}}</td>
+                        </tr>
+                    {% endfor %}
+                        
+                </tbody>
+            </table>
+        </div>
+    {% endblock content %}
+        

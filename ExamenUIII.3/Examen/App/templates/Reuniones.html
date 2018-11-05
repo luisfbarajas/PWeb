@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% load static %}
+
+
+{% block title %}
+    Programacion Web|Reuniones
+{% endblock title %}
+    
+    {% block content %}
+        <div class="container">
+            <h3 class="text-center mt-5">Frecuencia de reuniones</h3>
+            <table class="table table-striped mt-5">
+                <thead>
+                    <th>
+                        Proyecto
+                    </th>
+                    <th>Reunion</th>
+                </thead>
+                <tbody>
+                    
+                    {% for r in reunione  %}
+                    <tr>
+                            <td>{{r.name}}</td>
+                            <td>{{r.reuniones}}</td>
+                        </tr>
+                    {% endfor %}
+                        
+                    
+                </tbody>
+            </table>
+        </div>
+    {% endblock content %}
+        

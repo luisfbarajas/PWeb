@@ -6,7 +6,51 @@
 {% endblock title %}
 
 {% block content %}
-    
+<div class="container mt-5">
+    <h3 class="text-center pb-3">Examen 3.3</h3>
+    <p class="text-justify">Parra’s Inc. Tiene la necesidad de gestionar sus proyectos y la relación proyecto -
+        empleado, solicita a su departamento de desarrollo de software realizar una
+        aplicación WEB donde los lideres de proyecto y los ejecutivos puedan gestionar
+        cualquier proyecto de la corporación, las necesidades se describen enseguida:</p>
+        <ul>
+            <li>Movimientos de empleados</li>
+            <li>Movimientos de proyectos</li>
+            <li>Relación empleado proyecto</li>
+            <li>Relación actividad - empleado</li>
+            <li>Calendario de actividades</li>
+            <li>Calendario de avances</li>
+            <li>Programación de reuniones cliente - proyecto</li>
+            <li>Perfil de los empleados</li>
+        </ul>
+
+        <hr>
+        <h3>Registra un proyecto</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row">
+                {{form}}
+            </div>
+            <button type="submit" class="btn btn-outline-primary btn-block mt-3">Registrar</button>
+        </form>
+    </div>
+   
 {% endblock content %}
+    
+
+{% block script %}
+
+<script
+  src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+  integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+  crossorigin="anonymous"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+    var input = document.getElementById("id_inicia");
+    input.type = 'date';
+})
+
+
+</script>
+{% endblock script %}
     
     
