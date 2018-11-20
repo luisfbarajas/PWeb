@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Programacion Web | Personal
+{% endblock title %}
+    
+
+{% block content %}
+    <div class="container">
+        <h3 class="text-center mt-5">Personal</h3>
+        <table class="table table-striped mt-5">
+            <thead>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Puesto</th>
+                <th>Linea</th>
+            </thead>
+            <tbody>
+                    {% for p in personal %}
+                        <tr>
+                            <td>
+                                {{p.name}}
+                            </td>
+                            <td>{{p.lastname}}</td>
+                            <td>{{p.puesto}}</td>
+                            <td>{{p.linea}}</td>
+                        </tr>
+                    {% endfor %}
+                        
+            </tbody>
+
+        </table>
+    </div>
+{% endblock content %}
+    

@@ -8,12 +8,14 @@ class empleadosSerializer(serializers.ModelSerializer):
 
 
 class actividadesSerializer(serializers.ModelSerializer):
+    empleado =  empleadosSerializer(read_only=True)
     class Meta:
         model = actividades
         fields = ('id','name','duracion','empleado')
 
 
 class RegistroProyectoSerializer(serializers.ModelSerializer):
+    trabaja = empleadosSerializer(read_only=True)
     class Meta:
         model = RegistroProyecto
         fields = ('id','name','lider','inicia','duracion','reuniones','trabaja')

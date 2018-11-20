@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Programacion Web | Revizados
+{% endblock title %}
+
+
+{% block content %}
+    <div class="container">
+        <h3 class="text-center mt-5">Productos aprobados y no aprobados</h3>
+        <table class="table table-striped mt-5">
+            <thead>
+                <th>Tipo de producto</th>
+                <th>Estatus</th>
+                <th>Fecha</th>
+            </thead>
+            <tbody>
+                
+                {% for p in producto %}
+                   <tr>
+                       <td>{{p.typeProduc}}</td>
+                       <td>{{p.estatus}}</td>
+                       <td>{{p.fecha}}</td>
+                   </tr> 
+                {% endfor %}
+                    
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+    

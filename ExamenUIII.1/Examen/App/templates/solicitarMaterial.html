@@ -1,0 +1,100 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Programacion Web | Solicitud
+{% endblock title %}
+    
+
+{% block  content %}
+    <div class="container">
+        <h3 class="text-center mt-5">Solicite el material necesario</h3>
+        <p class="text-justify">
+            Se realiza la solicitud del material segun el tipo de linea de produccion
+        </p>
+        <form>
+            <div class="row">
+                <div class="col-md-4">
+                    <select name="tipo" id="tipo" onchange="changed();" class="form-control">
+                        <option value="Micro tecnologia">Micro tecnologia</option>
+                        <option value="Automotriz">Automotriz</option>
+                    </select>
+                </div>
+                
+            </div>
+        </form>
+        <form>
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <label for="">Piezas</label>
+                    <input type="text" name="pieza" id="pieza" class="form-control" placeholder="Piezas a pedir" value="7" readonly="true">
+                </div>
+                <div class="col-md-4">
+                    <label for="">Pide:</label>
+                    <select name="pide" id="pide" class="form-control"></select>
+                </div>
+                <div class="col-md-4">
+                    <label for="">Recibe:</label>
+                    <select name="recibe" id="recibe" class="form-control"></select>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-outline-primary mt-3" id="solicitar">Solicitar</button>
+        </form>
+    </div>
+{% endblock  %}
+    
+
+{% block script %}
+    <script type="text/javascript">
+    $(document).ready(function(){
+        $.ajax({
+            url:"/apipersonal/",
+            method: "GET",
+            success:function(data){
+                data.forEach(element => {
+                    var pide =  document.getElementById("pide");
+                    var recibe =  document.getElementById("recibe");
+                    var option =  document.createElement("option");
+                    var option2 = document.createElement("option");
+                    option2.text = element.name;
+                    option2.value = element.id;
+                    option.text = element.name;
+                    option.value = element.id
+                    pide.add(option);
+                    recibe.add(option2);
+                });
+            }
+        })
+        $("#solicitar").click(function(e){
+            e.preventDefault();
+            var entrega, recibe;
+            entrega = $("#entega").val();
+            recibe = $("#recibe").val();
+            $.ajax({
+                url: "/apientrega/",
+                method: "PUT",
+                data: {"entrega": entrega,"recibe":recibe},
+                contentType: "application/json",
+                success: function(data){
+                    console.log(data);
+                },
+                error:function(){
+                    console.log("error");
+                }
+            });
+        })
+    });
+    function insertElement(element){
+        
+    }
+    function changed(){
+        var tipo =  document.getElementById("tipo").value;   
+        var pieza  = document.getElementById("pieza");
+        if(pieza.value != 7){
+            pieza.value = 7;
+        }else{
+            pieza.value = 16;
+        }
+    }
+    </script>
+{% endblock script %}
+    

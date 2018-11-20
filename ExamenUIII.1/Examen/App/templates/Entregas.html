@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Programacion Web | Entregas
+{% endblock title %}
+    
+    {% block content %}
+        <div class="container">
+            <h3 class="text-center mt-5">Entregas de material</h3>
+            <table class="table table-striped mt-5">
+                <thead>
+                    <th>Entrega</th>
+                    <th>Recibe</th>
+                    <th>Fecha</th>
+                </thead>
+                <tbody>                   
+                    {% for e in entregas %}
+                    <tr>
+                            <td>{{e.entrega}}</td>
+                            <td>{{e.recibe}}</td>
+                            <td>{{e.fecha}}</td>
+                        </tr>
+                    {% endfor %}                   
+                </tbody>
+            </table>
+        </div>
+    {% endblock content %}

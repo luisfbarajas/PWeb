@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Programacion Web | Productos ordenados
+{% endblock title %}
+    
+
+{% block content %}
+    <div class="container">
+        <h3 class="text-center mt-5">Productos por dia, semana y area</h3>
+
+        <table class="table table-striped mt-5">
+            <thead>
+                <th>Tipo producto</th>
+                <th>Estatus</th>
+                <th>Fecha</th>
+            </thead>
+            <tbody>
+                
+                {% for p in producto %}
+                    <tr>
+                        
+                        {% if p.typeProduc == 'Automotriz' %}
+                        <td class="text-success">{{p.typeProduc}}</td> 
+                        {% endif %} 
+                        {% if p.typeProduc == 'Micro tecnologia' %}
+                        <td class="text-info">{{p.typeProduc}}</td> 
+                        {% endif %}
+                        <td>{{p.estatus}}</td>
+                        <td>{{p.fecha}}</td>
+                    </tr>
+                {% endfor %}
+                    
+            </tbody>
+        </table>
+    </div>
+{% endblock content %}
+    

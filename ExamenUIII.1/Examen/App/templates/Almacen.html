@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Programacion Web | Almacen
+{% endblock title %}
+    
+    {% block content %}
+        <div class="container">
+            <h3 class="text-center mt-5">Piezas en inventario</h3>
+            <table class="table table-striped mt-5">
+                <thead>
+                    <th>
+                        Pieza
+                    </th>
+                    <th>
+                        Cantidad
+                    </th>
+                    <th>
+                        Tipo de producto
+                    </th>
+                </thead>
+                <tbody>
+                    
+                    {% for a in almacen %}
+                    <tr>
+                            <td>
+                                {{a.PiezaName}}
+                            </td>
+                            <td>
+                                {{a.cantidad}}.pzs
+                            </td>
+                            <td>
+                                {{a.typeProduc}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                        
+                 
+                </tbody>
+            </table>
+        </div>
+    {% endblock content %}
+        

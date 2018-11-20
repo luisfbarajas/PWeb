@@ -26,19 +26,17 @@
                       Reportes
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <a class="dropdown-item" href="#">Ordenes por día y semana</a>
+                      <a class="dropdown-item" href="/Entregas">Ordenes por día y semana</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Productos por día, semana y área</a>
+                      <a class="dropdown-item" href="/productoorden">Productos por día, semana y área</a>
                       <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Balances de piezas y productos</a>
-                      <div class="dropdown-divider"></div>
-                      <a class="dropdown-item" href="#">Productos aprobados por calidad y no aprobados</a>
+                      <a class="dropdown-item" href="/producto">Productos aprobados por calidad y no aprobados</a>
                       <div class="dropdown-divider"></div>
                      
-                      <a class="dropdown-item" href="#">Ordenes con status abierto y cerrado</a>
+                      <a class="dropdown-item" href="/ordenes">Ordenes con status abierto y cerrado</a>
                       <div class="dropdown-divider"></div>
                   
-                      <a class="dropdown-item" href="#">Personal por área</a>
+                      <a class="dropdown-item" href="/PersonalArea">Personal por área</a>
                       <div class="dropdown-divider"></div>
                     
                       <a class="dropdown-item" href="#">Input y output del almacén por día y por semana</a>
@@ -52,7 +50,15 @@
 
                     </div>
                   </li>
-  
+                <li class="nav-item active">
+                        <a class="nav-link text-white" href="/almacen">Balances de piezas y productos</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="/lineasProduccion">Lineas de produccion</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link text-white" href="/solicitarMaterial">Solicitar material</a>
+                </li>
             </ul>
           
           </div>
@@ -64,7 +70,10 @@
     <footer class="pt-5">
         <div class="text-center">Luis Francisco Barajas Benitez | Programacion Web</div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     {% block script %}
