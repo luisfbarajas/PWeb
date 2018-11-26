@@ -15,10 +15,56 @@
     crossorigin="anonymous">
     <!-- custom styles -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    
+    {% block styles %}
+        
+    {% endblock styles %}
+        
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{%block title%}{%endblock%}</title>
 </head>
 <body>
+    
+    {% if user.is_authenticate %}
+            <!-- Barra -->
+<nav>
+        <ul>
+            &nbsp&nbsp
+            <div class="dropdown" >
+                <button class="dropbtn"> <i class="fas fa-home"></i>&nbsp Inicio  </button>
+                <div class="dropdown-content">
+                  <a href="#"> Cerrar sesion </a>
+                  
+                </div>
+              </div>
+    
+              &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    
+           <div class="dropdown" >
+              <button class="dropbtn"> <i class="far fa-calendar-alt"></i> &nbsp Calendario  </button>
+              <div class="dropdown-content">
+                <a href="#"> Consultar calendario</a>
+                <a href="#">Editar calendario</a>  
+              </div>
+            </div>
+    
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+    
+           <div class="dropdown" >
+            <button class="dropbtn"> <i class="fas fa-tasks"></i> &nbsp Proyectos   </button>
+            <div class="dropdown-content">
+              <a href="#"> Alta de proyectos</a>
+              <a href="#">Consulta de proyectos</a>  
+            </div>
+          </div>
+        </ul>
+    </nav> 
+    {% else %}
+
+    {% endif %}
+        
+
+    
     {% block content %}
         
     {% endblock content %}
