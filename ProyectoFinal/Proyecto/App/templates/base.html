@@ -36,7 +36,7 @@
             <div class="dropdown" >
                 <button class="dropbtn"> <i class="fas fa-home"></i>&nbsp Inicio  </button>
                 <div class="dropdown-content">
-                  <a href="#"> Cerrar sesion </a>
+                  <a href="{% url 'logout' %}"> Cerrar sesion </a>
                   
                 </div>
               </div>
@@ -60,6 +60,7 @@
               <a href="#">Consulta de proyectos</a>  
             </div>
           </div>
+          
         </ul>
     </nav> 
     {% else %}
@@ -75,7 +76,7 @@
                     <a class="nav-link" href="{% url 'login' %}"><i class="fas fa-sign-in-alt"></i> Iniciar sesion</a>
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#"><i class="far fa-address-card"></i> Registrar</a>
+                    <a class="nav-link" href="{% url 'signup' %}"><i class="far fa-address-card"></i> Registrar</a>
                 </li>
             </ul>
         </div>
