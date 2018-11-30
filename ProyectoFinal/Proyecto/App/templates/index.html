@@ -1,11 +1,91 @@
 {% extends 'base.html' %}
 
+{% load static %}
 {% block title %}
-    Programacion Web | Index
+Programacion Web | Index
 {% endblock title %}
     
 
 {% block content %}
+
+<body>
+<!-- Page Content -->
+    <div class="container">
+
+      <!-- Portfolio Item Heading -->
+      <h1 class="my-4">Bienvenido a HOST
+      </h1>
+
+      <!-- Portfolio Item Row -->
+      <div class="row">
+
+        <div class="col-md-8">
+        <img src="{% static 'img/img1.jpg' %}" width="600" alt="brand">
+        </div>
+
+        <div class="col-md-4">
+          <h3 class="my-3">Nuestra asociacion</h3>
+          <p>Nos encargamos de brindar un servicio de administracion de proyectos, para pequeñas y medianas empresas las cuales no tienen el capital suficiente para alojar avance de un proyecto en progreso</p>
+          
+         <h3 class="my-3"> Brindamos</h3>
+          <ul>
+            <li>Calendario administrativo</li>
+            <li>Consulta de avance de proyecto</li>
+            <li>Asesoria administrativa</li>
+            <li>Optimizacion de procesos</li>
+          </ul>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+      <!-- Related Projects Row -->
+      <h3 class="my-4">Certificaciones</h3>
+
+      <div class="row">
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+          	<span style="font-size: 100px; color: Dodgerblue;">
+            <i class="fab fa-aws"></i>
+          </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+          	<span style="font-size: 100px; color: Dodgerblue;">
+            <i class="fab fa-aviato"></i>
+          </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+          	<span style="font-size: 100px; color: Dodgerblue;">
+            <i class="fab fa-android"></i>
+          </a>
+        </div>
+
+        <div class="col-md-3 col-sm-6 mb-4">
+          <a href="#">
+          	<span style="font-size: 100px; color: Dodgerblue;">	
+            <i class="fab fa-penny-arcade"></i>
+          </a>
+        </div>
+
+      </div>
+      <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- Footer -->
+    <footer class="py-5 bg-dark">
+      <div class="container">
+        <p class="m-0 text-center text-white">Copyright &copy; HOST 2018</p>
+      </div>
+      <!-- /.container -->
+    </footer>
+</body>
 
 {% endblock content %}
     
