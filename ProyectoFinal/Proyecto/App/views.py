@@ -8,7 +8,14 @@ def index(request):
 def scheduler(request):
     return render(request,'scheduler.html')
 
+def editCalendar(request):
+    return render(request, 'editarCalendario.html')
 
+def altaProyecto(request):
+    return render(request,'altaProyecto.html')
+
+def consulta(request):
+    return render(request,'Consulta.html')
 
 def signup(request):
     if request.method == 'POST':

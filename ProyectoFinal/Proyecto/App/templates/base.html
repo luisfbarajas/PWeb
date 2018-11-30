@@ -46,8 +46,8 @@
            <div class="dropdown" >
               <button class="dropbtn"> <i class="far fa-calendar-alt"></i> &nbsp Calendario  </button>
               <div class="dropdown-content">
-                <a href="scheduler.html"> Consultar calendario</a>
-                <a href="#">Editar calendario</a>  
+                <a href="{% url 'scheduler' %}"> Consultar calendario</a>
+                <a href="{% url 'editCalendar' %}">Editar calendario</a>  
               </div>
             </div>
     
@@ -56,8 +56,8 @@
            <div class="dropdown" >
             <button class="dropbtn"> <i class="fas fa-tasks"></i> &nbsp Proyectos   </button>
             <div class="dropdown-content">
-              <a href="#"> Alta de proyectos</a>
-              <a href="#">Consulta de proyectos</a>  
+              <a href="{% url 'altaProyecto' %}"> Alta de proyectos</a>
+              <a href="{% url 'consulta' %}">Consulta de proyectos</a>  
             </div>
           </div>
           
