@@ -2,14 +2,29 @@
 
 {% load static %}
 
+{% block styles %}
+  
+    <link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.base.css" type="text/css" />
+    <link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
+    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+
+{% endblock styles %}
+
+
 {% block content %}
+<BODY>
+        <div id="scheduler">
+         
+        </div>
 
-
+</BODY>
 {% endblock %}
 
 
 
 {% block script %}
-
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script type="text/javascript" src="https://www.jqwidgets.com/public/jqwidgets/jqx-all.js"></script>
+<script type="text/javascript" src="https://www.jqwidgets.com/public/jqwidgets/globalization/globalize.js"></script>
+<script type="text/javascript" href="{% static 'js/app.css' %}"></script>
 {% endblock script %}
