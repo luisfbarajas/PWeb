@@ -4,27 +4,58 @@
 
 {% block styles %}
   
-    <link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.base.css" type="text/css" />
-    <link rel="stylesheet" href="https://www.jqwidgets.com/public/jqwidgets/styles/jqx.energyblue.css" type="text/css" />
-    <link rel="stylesheet" href="{% static 'css/app.css' %}">
+
+<link href="https://cdn.alloyui.com/3.0.1/aui-css/css/bootstrap.min.css" rel="stylesheet"></link>
 
 {% endblock styles %}
 
 
 {% block content %}
-<BODY>
-        <div id="scheduler">
-         
-        </div>
 
-</BODY>
-{% endblock %}
+<div id="wrapper">
+  <div id="myScheduler"></div>
+</div>
+
+
+
+{% endblock content %}
 
 
 
 {% block script %}
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript" src="https://www.jqwidgets.com/public/jqwidgets/jqx-all.js"></script>
-<script type="text/javascript" src="https://www.jqwidgets.com/public/jqwidgets/globalization/globalize.js"></script>
-<script type="text/javascript" href="{% static 'js/app.css' %}"></script>
+<script src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
+
+<script>
+YUI().use(
+  'aui-scheduler',
+  function(Y) {
+    var events = [
+    
+  
+     
+    ];
+
+    var agendaView = new Y.SchedulerAgendaView();
+    var dayView = new Y.SchedulerDayView();
+    var weekView = new Y.SchedulerWeekView();
+    var monthView = new Y.SchedulerMonthView();
+
+    var eventRecorder = new Y.SchedulerEventRecorder();
+
+    new Y.Scheduler(
+      {
+        activeView: weekView,
+        boundingBox: '#myScheduler',
+        date: new Date(2018, 10, 30),
+        eventRecorder: eventRecorder,
+        items: events,
+        render: true,
+        views: [dayView, weekView, monthView, agendaView]
+      }
+    );
+  }
+);
+
+</script>
+
 {% endblock script %}
