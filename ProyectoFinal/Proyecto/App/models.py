@@ -1,38 +1,6 @@
 from django.db import models
-
-
-# class Administradores(models.Model):
-#     nombres = models.CharField(max_length=255)
-#     ApellidoMat = models.CharField(max_length=255)
-#     ApellidoPat = models.CharField(max_length=255)
-#     email = models.CharField(max_length = 255)
-#     password = models.CharField(max_length=255)
-    
-#     def __str__(self):
-#         return self.nombres
-
-
-# class Usuarios(models.Model):
-#     nombres = models.CharField(max_length=255)
-#     ApellidoMat = models.CharField(max_length=255)
-#     ApellidoPat = models.CharField(max_length=255)
-#     email = models.CharField(max_length = 255)
-#     password = models.CharField(max_length=255)
-    
-#     def __str__(self):
-#         return self.nombres
-
-
-class UsuariosClientes(models.Model):
-    nombres = models.CharField(max_length=255)
-    ApellidoMat = models.CharField(max_length=255)
-    ApellidoPat = models.CharField(max_length=255)
-    email = models.CharField(max_length = 255)
-    password = models.CharField(max_length=255)
-
-    def __str__(self):
-        return self.nombres
-
+from django.contrib.auth.models import User
+# Create your models here.
 
 
 class RegistroProyecto(models.Model):
@@ -40,13 +8,33 @@ class RegistroProyecto(models.Model):
     NombreEmpresa = models.CharField(max_length = 255)
     representante = models.CharField(max_length = 255)
     departamento = models.CharField(max_length = 255)
-    FechaRegistro = models.DateField(auto_now_add=True)
+    FechaRegistro = models.DateTimeField(auto_now_add=True)
     inicia = models.DateField()
     finaliza = models.DateField()
     descripcion = models.CharField(max_length = 255)
     ObjGeneral = models.CharField(max_length = 255)
     vision = models.CharField(max_length = 255)
-    # administrador = models.ForeignKey(Administradores, on_delete = models.CASCADE, null=True, blank=True)
-
+    proRegistro = models.ForeignKey(User, on_delete=models.CASCADE)
+    status = models.BooleanField()
     def __str__(self):
         return self.NombreProyecto
+
+
+class Proyecto(models.Model):
+    NombreProyecto = models.CharField(max_length = 255)
+    representante = models.CharField(max_length = 255)
+    empresa =  models.CharField(max_length = 255)
+    
+    def __str__(self):
+        return self.NombreProyecto
+
+class Actividades(models.Model):
+    actividad_tipo =  (('Individual','Individual'), ('Multiple','Multiple'))
+    estado_tipo = (('Pendiente','Pendiente'),('Asignada','Asignada'),('Cancelada','Cancelada'))
+    type = models.CharField(max_length = 255,choices = actividad_tipo)
+    representante = models.ManyToManyField(Proyecto, related_name='representant')
+    estado = models.CharField(max_length = 255, choices = estado_tipo)
+    
+    def __str__(self):
+        return self.estado
+

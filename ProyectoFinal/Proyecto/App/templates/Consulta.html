@@ -9,6 +9,42 @@
 {% block content %}
     <div class="container">
         <h3 class="text-center mt-5">Consulta de proyecto</h3>
+        <table class="mt-5 table table-striped">
+            <thead>
+                <th>Nombre</th>
+                <th>Empresa</th>
+                <th>Representante</th>
+                <th>Fecha de registro</th>
+                <th>Inicia</th>
+                <th>Termina</th>
+                <th>Descripcion</th>
+                <th>Registro</th>
+                <th>Estado</th>
+            </thead>
+            <tbody>
+                    
+                    {% for p in proyectos %}
+                        <tr>
+                            <td>{{p.NombreProyecto}}</td>
+                            <td>{{p.NombreEmpresa}}</td>
+                            <td>{{p.representante}}</td>
+                            <td>{{p.FechaRegistro}}</td>
+                            <td>{{p.inicia}}</td>
+                            <td>{{p.finaliza}}</td>
+                            <td>{{p.descripcion}}</td>
+                            <td>{{p.proRegistro}}</td>
+                            
+                            {% if p.status %}
+                                <td class="text-success">Activo</td>
+                            {% else %}
+                            <td class="text-danger">Terminado</td>
+                            {% endif %}
+                                
+                        </tr>
+                    {% endfor %}
+                        
+            </tbody>
+        </table>
     </div>
 {% endblock content %}
     

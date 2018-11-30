@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 
 {% block  title %}
-    Progrmacion web | Alta de proyectos
+    Programacion web | Alta de proyectos
 {% endblock %}
     
 
@@ -82,6 +82,17 @@
     
 
 {% block script %}
-    
+<script
+src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
+crossorigin="anonymous"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  var start = document.getElementById("id_start");
+  var finaliza = document.getElementById("id_ends");
+  finaliza.type = 'date';
+  start.type = 'date';
+
+});</script>
 {% endblock script %}
     

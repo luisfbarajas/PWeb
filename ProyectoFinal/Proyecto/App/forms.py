@@ -22,14 +22,20 @@ class RegistroProyecto(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(RegistroProyecto, self).__init__(*args, **kwargs)
         self.fields['ProyectName'].widget.attrs['class']='form-control'
+        self.fields['ProyectName'].widget.attrs['placeholder']='Nombre del proyecto'
         self.fields['EnterpriseName'].widget.attrs['class']='form-control'
+        self.fields['EnterpriseName'].widget.attrs['placeholder']='Nombre de la empresa'
         self.fields['represent'].widget.attrs['class']='form-control'
+        self.fields['represent'].widget.attrs['placeholder']='Representante'
         self.fields['deparment'].widget.attrs['class']='form-control'
         self.fields['start'].widget.attrs['class']='form-control'
         self.fields['ends'].widget.attrs['class']='form-control'
         self.fields['description'].widget.attrs['class']='form-control'
+        self.fields['description'].widget.attrs['placeholder']='Descripcion'
         self.fields['generalObj'].widget.attrs['class']='form-control'
+        self.fields['generalObj'].widget.attrs['placeholder']='Objetivo'
         self.fields['vision'].widget.attrs['class']='form-control'
+        self.fields['vision'].widget.attrs['placeholder']='Vision'
     class Meta:
         model = models_DB.RegistroProyecto
         fields = [

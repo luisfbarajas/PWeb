@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from . import forms as form_model
+from . import forms as form_model, models as models_App
+
 
 def index(request):
     return render(request,'index.html')
@@ -17,7 +18,8 @@ def altaProyecto(request):
     return render(request,'altaProyecto.html', {"forma": forma})
 
 def consulta(request):
-    return render(request,'Consulta.html')
+    proyectos = models_App.RegistroProyecto.objects.all()
+    return render(request,'Consulta.html', {'proyectos':proyectos})
 
 def signup(request):
     if request.method == 'POST':
