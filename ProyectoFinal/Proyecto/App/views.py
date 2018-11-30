@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
+from . import forms as form_model
 
 def index(request):
     return render(request,'index.html')
@@ -12,7 +13,8 @@ def editCalendar(request):
     return render(request, 'editarCalendario.html')
 
 def altaProyecto(request):
-    return render(request,'altaProyecto.html')
+    forma = form_model.RegistroProyecto
+    return render(request,'altaProyecto.html', {"forma": forma})
 
 def consulta(request):
     return render(request,'Consulta.html')

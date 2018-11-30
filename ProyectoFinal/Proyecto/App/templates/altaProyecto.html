@@ -8,6 +8,75 @@
 {% block content %}
     <div class="container">
         <h3 class="text-center mt-5">Alta de proyectos</h3>
+        {% csrf_token %}
+  <form method="POST">
+    <div class="row">
+        <div class="col-md-2">
+            <label>Nombre del proyecto:</label>
+        </div>
+        <div class="col-md-3">
+            {{forma.ProyectName}}
+        </div>
+        <div class="col-md-3">
+            <label>Nombre de la empresa:</label>
+        </div>
+        <div class="col-md-4">
+            {{forma.EnterpriseName}}
+        </div>
+    </div>
+    <div class="row mt-3">
+        <div class="col-md-2">
+            <label>Representante:</label>
+        </div>
+        <div class="col-md-3">
+            {{forma.represent}}
+        </div>
+        <div class="col-md-3">
+            <label>Departamento:</label>
+        </div>
+        <div class="col-md-4">
+            {{forma.deparment}}
+        </div>
+    </div>
+    <hr>
+    <div class="row mt-3">
+        <div class="col-md-2">
+            <label>Fecha inicio:</label>
+        </div>
+        <div class="col-md-3">
+            {{forma.start}}
+        </div>
+        <div class="col-md-3">
+            <label>Fecha final:</label>
+        </div>
+        <div class="col-md-4">
+            {{forma.ends}}
+        </div>
+    </div>
+    <hr>
+    <div class="row">
+        <div class="col-md-2">
+            <label>Descripcion</label>
+        </div>
+        {{forma.description}}
+    </div>
+    <hr>
+    <div class="row mt-3">
+        <div class="col-md-2">
+            <label>Objetivo general:</label>
+        </div>
+        <div class="col-md-3">
+            {{forma.generalObj}}
+        </div>
+        <div class="col-md-1">
+            <label>Vision:</label>
+        </div>
+        <div class="col-md-4">
+            {{forma.vision}}
+        </div>
+    </div>
+    <button type="submit" name="save" id="save" class="btn btn-outline-primary btn-block my-5">Aceptar y guardar</button>
+  </form>
     </div>
 {% endblock content %}
     
