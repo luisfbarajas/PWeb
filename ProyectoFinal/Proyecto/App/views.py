@@ -14,7 +14,14 @@ def editCalendar(request):
     return render(request, 'editarCalendario.html')
 
 def altaProyecto(request):
-    forma = form_model.RegistroProyecto
+    forma = form_model.RegistroProyecto(request.POST or None)
+    if forma.is_valid():
+        proyecto = forma.save(commit = False)
+        return redirect('/')   
+    else:
+        print('algo')
+        forma = form_model.RegistroProyecto()
+
     return render(request,'altaProyecto.html', {"forma": forma})
 
 def consulta(request):

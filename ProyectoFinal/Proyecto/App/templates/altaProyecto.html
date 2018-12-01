@@ -8,8 +8,9 @@
 {% block content %}
     <div class="container">
         <h3 class="text-center mt-5">Alta de proyectos</h3>
-        {% csrf_token %}
+        
   <form method="POST">
+        {% csrf_token %}
     <div class="row">
         <div class="col-md-2">
             <label>Nombre del proyecto:</label>
@@ -82,11 +83,12 @@
     
 
 {% block script %}
-<script
+<!-- <script
 src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
 integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-crossorigin="anonymous"></script>
+crossorigin="anonymous"></script> -->
 <script type="text/javascript">
+
 $(document).ready(function(){
   var start = document.getElementById("id_start");
   var finaliza = document.getElementById("id_ends");

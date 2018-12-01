@@ -7,15 +7,15 @@ class RegistroProyecto(models.Model):
     NombreProyecto = models.CharField(max_length = 255)
     NombreEmpresa = models.CharField(max_length = 255)
     representante = models.CharField(max_length = 255)
-    departamento = models.CharField(max_length = 255)
+    departamento = models.CharField(max_length = 255 )
     FechaRegistro = models.DateTimeField(auto_now_add=True)
     inicia = models.DateField()
     finaliza = models.DateField()
-    descripcion = models.CharField(max_length = 255)
-    ObjGeneral = models.CharField(max_length = 255)
+    descripcion = models.CharField(max_length = 255,null=True, blank=True)
+    ObjGeneral = models.CharField(max_length = 255,null=True, blank=True)
     vision = models.CharField(max_length = 255)
-    proRegistro = models.ForeignKey(User, on_delete=models.CASCADE)
-    status = models.BooleanField()
+    proRegistro = models.ForeignKey(User, on_delete=models.CASCADE,  null=True, blank=True)
+    status = models.BooleanField(default= True,  null=True, blank=True)
     def __str__(self):
         return self.NombreProyecto
 
