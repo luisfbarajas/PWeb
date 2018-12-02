@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
-from . import forms as form_model, models as models_App
+from . import  models as models_App
+from .forms import RegistroProyecto
 
 
 def index(request):
@@ -14,13 +15,15 @@ def editCalendar(request):
     return render(request, 'editarCalendario.html')
 
 def altaProyecto(request):
-    forma = form_model.RegistroProyecto(request.POST or None)
+    forma = RegistroProyecto(request.POST)
     if forma.is_valid():
         proyecto = forma.save(commit = False)
-        return redirect('/')   
+        proyecto.userRegistro = request.user
+        proyecto.save()
+        return redirect('altaProyecto')   
     else:
-        print('algo')
-        forma = form_model.RegistroProyecto()
+        print()
+        forma = RegistroProyecto()
 
     return render(request,'altaProyecto.html', {"forma": forma})
 

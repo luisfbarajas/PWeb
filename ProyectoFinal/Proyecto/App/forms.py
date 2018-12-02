@@ -9,42 +9,38 @@ class RegistroProyecto(forms.ModelForm):
         ('Produccion','Produccion'),
         ('Calidad','Calidad')
         )
-    ProyectName = forms.CharField()
-    EnterpriseName = forms.CharField()
-    represent = forms.CharField()
-    deparment = forms.ChoiceField(choices = deparment_choices)
-    start = forms.DateField(widget=forms.DateInput(format="%m/%d/%Y"))
-    ends = forms.DateField(widget=forms.DateInput(format="%m/%d/%Y"))
-    description = forms.CharField(widget=forms.Textarea())
-    generalObj = forms.CharField()
-    vision = forms.CharField(widget=forms.Textarea())
-    # administratos = forms.CharField()
+    NombreProyecto = forms.CharField()
+    Cliente = forms.CharField()
+    representante = forms.CharField()
+    departamento = forms.ChoiceField(choices = deparment_choices)
+    inicia = forms.DateField(widget=forms.DateInput(format="%m/%d/%Y"))
+    finaliza = forms.DateField(widget=forms.DateInput(format="%m/%d/%Y"))
+    descripcion = forms.CharField(widget=forms.Textarea())
+    ObjGeneral = forms.CharField()
     def __init__(self, *args, **kwargs):
         super(RegistroProyecto, self).__init__(*args, **kwargs)
-        self.fields['ProyectName'].widget.attrs['class']='form-control'
-        self.fields['ProyectName'].widget.attrs['placeholder']='Nombre del proyecto'
-        self.fields['EnterpriseName'].widget.attrs['class']='form-control'
-        self.fields['EnterpriseName'].widget.attrs['placeholder']='Nombre de la empresa'
-        self.fields['represent'].widget.attrs['class']='form-control'
-        self.fields['represent'].widget.attrs['placeholder']='Representante'
-        self.fields['deparment'].widget.attrs['class']='form-control'
-        self.fields['start'].widget.attrs['class']='form-control'
-        self.fields['ends'].widget.attrs['class']='form-control'
-        self.fields['description'].widget.attrs['class']='form-control'
-        self.fields['description'].widget.attrs['placeholder']='Descripcion'
-        self.fields['generalObj'].widget.attrs['class']='form-control'
-        self.fields['generalObj'].widget.attrs['placeholder']='Objetivo'
-        self.fields['vision'].widget.attrs['class']='form-control'
-        self.fields['vision'].widget.attrs['placeholder']='Vision'
+        self.fields['NombreProyecto'].widget.attrs['class']='form-control'
+        self.fields['NombreProyecto'].widget.attrs['placeholder']='Nombre del proyecto'
+        self.fields['Cliente'].widget.attrs['class']='form-control'
+        self.fields['Cliente'].widget.attrs['placeholder']='Nombre de la empresa'
+        self.fields['representante'].widget.attrs['class']='form-control'
+        self.fields['representante'].widget.attrs['placeholder']='Representante'
+        self.fields['departamento'].widget.attrs['class']='form-control'
+        self.fields['inicia'].widget.attrs['class']='form-control'
+        self.fields['finaliza'].widget.attrs['class']='form-control'
+        self.fields['descripcion'].widget.attrs['class']='form-control'
+        self.fields['descripcion'].widget.attrs['placeholder']='Descripcion'
+        self.fields['ObjGeneral'].widget.attrs['class']='form-control'
+        self.fields['ObjGeneral'].widget.attrs['placeholder']='Objetivo'
+
     class Meta:
         model = models_DB.RegistroProyecto
         fields = [
             "NombreProyecto",
-            "NombreEmpresa",
+            "Cliente",
             "representante",
             "departamento",
             "inicia",
             "finaliza",
             "descripcion",
-            "ObjGeneral",
-            "vision"]
+            "ObjGeneral"]

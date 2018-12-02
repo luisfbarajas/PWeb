@@ -11,89 +11,79 @@
         
   <form method="POST">
         {% csrf_token %}
-    <div class="row">
-        <div class="col-md-2">
-            <label>Nombre del proyecto:</label>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Nombre del proyecto:</label>
+            </div>
+            <div class="col-md-3">
+                {{forma.NombreProyecto}}
+            </div>
+            <div class="col-md-3">
+                <label>Nombre de la empresa:</label>
+            </div>
+            <div class="col-md-4">
+                {{forma.Cliente}}
+            </div>
         </div>
-        <div class="col-md-3">
-            {{forma.ProyectName}}
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <label>Representante:</label>
+            </div>
+            <div class="col-md-3">
+                {{forma.representante}}
+            </div>
+            <div class="col-md-3">
+                <label>Departamento:</label>
+            </div>
+            <div class="col-md-4">
+                {{forma.departamento}}
+            </div>
         </div>
-        <div class="col-md-3">
-            <label>Nombre de la empresa:</label>
+        <hr>
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <label>Fecha inicio:</label>
+            </div>
+            <div class="col-md-3">
+                {{forma.inicia}}
+            </div>
+            <div class="col-md-3">
+                <label>Fecha final:</label>
+            </div>
+            <div class="col-md-4">
+                {{forma.finaliza}}
+            </div>
         </div>
-        <div class="col-md-4">
-            {{forma.EnterpriseName}}
+        <hr>
+        <div class="row">
+            <div class="col-md-2">
+                <label>Descripcion</label>
+            </div>
+            {{forma.descripcion}}
         </div>
-    </div>
-    <div class="row mt-3">
-        <div class="col-md-2">
-            <label>Representante:</label>
+        <hr>
+        <div class="row mt-3">
+            <div class="col-md-2">
+                <label>Objetivo general:</label>
+            </div>
+            <div class="col-md-3">
+                {{forma.ObjGeneral}}
+            </div>
         </div>
-        <div class="col-md-3">
-            {{forma.represent}}
-        </div>
-        <div class="col-md-3">
-            <label>Departamento:</label>
-        </div>
-        <div class="col-md-4">
-            {{forma.deparment}}
-        </div>
-    </div>
-    <hr>
-    <div class="row mt-3">
-        <div class="col-md-2">
-            <label>Fecha inicio:</label>
-        </div>
-        <div class="col-md-3">
-            {{forma.start}}
-        </div>
-        <div class="col-md-3">
-            <label>Fecha final:</label>
-        </div>
-        <div class="col-md-4">
-            {{forma.ends}}
-        </div>
-    </div>
-    <hr>
-    <div class="row">
-        <div class="col-md-2">
-            <label>Descripcion</label>
-        </div>
-        {{forma.description}}
-    </div>
-    <hr>
-    <div class="row mt-3">
-        <div class="col-md-2">
-            <label>Objetivo general:</label>
-        </div>
-        <div class="col-md-3">
-            {{forma.generalObj}}
-        </div>
-        <div class="col-md-1">
-            <label>Vision:</label>
-        </div>
-        <div class="col-md-4">
-            {{forma.vision}}
-        </div>
-    </div>
-    <button type="submit" name="save" id="save" class="btn btn-outline-primary btn-block my-5">Aceptar y guardar</button>
+    <button type="submit" class="btn btn-outline-primary btn-block my-5">Aceptar y guardar</button>
   </form>
     </div>
 {% endblock content %}
     
 
 {% block script %}
-<!-- <script
-src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
-integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU="
-crossorigin="anonymous"></script> -->
 <script type="text/javascript">
 
 $(document).ready(function(){
-  var start = document.getElementById("id_start");
-  var finaliza = document.getElementById("id_ends");
+  var start = document.getElementById("id_inicia");
+  var finaliza = document.getElementById("id_finaliza");
   finaliza.type = 'date';
-  start.type = 'date';
+  start.type = 'date'; 
 
 });</script>
 {% endblock script %}
