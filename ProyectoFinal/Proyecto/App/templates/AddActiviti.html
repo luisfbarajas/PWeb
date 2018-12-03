@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Programacion Web |Agregar Actividad
+{% endblock title %}
+
+
+{% block content %}
+    <div class="container">
+        <h3 class="text-center mt-5">Agregar actividad</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="row mt-3">
+                <div class="col-md-2">
+                    <label>Nombre de actividad:</label>
+                </div>
+                <div class="col-md-4">
+                    {{forma.actividadName}}
+                </div>
+                <div class="col-md-2">
+                        <label>Tipo de actividad:</label>
+                    </div>
+                    <div class="col-md-4">
+                        {{forma.type}}
+                    </div>
+            </div>
+            <div class="row mt-3">
+                    <div class="col-md-2">
+                        <label>Estado:</label>
+                    </div>
+                    <div class="col-md-4">
+                        {{forma.estado}}
+                    </div>
+                    <div class="col-md-2">
+                        <label>Fecha de inicio:</label>
+                    </div>
+                    <div class="col-md-4">
+                        {{forma.inicia}}
+                    </div>
+            </div>
+            <div class="row mt-3">
+                    <div class="col-md-2">
+                        <label>Fecha de fin:</label>
+                    </div>
+                    <div class="col-md-4">
+                        {{forma.finaliza}}
+                    </div>
+                    <div class="col-md-2">
+                        <label>proyecto:</label>
+                    </div>
+                    <div class="col-md-4">
+                        {{forma.proyecto}}
+                    </div>
+            </div>
+            <div class="row">
+                <div class="col-md-2">
+                    <label>Encargado: </label>
+                </div>
+                <div class="col-md-4">
+                    {{forma.encargado}}
+                </div>
+            </div>
+            <button type="submit" class="btn btn-outline-primary btn-block mt-5">Agregar</button>
+        </form>
+    </div>
+{% endblock content %}
+    
+
+{% block script %}
+    <script>
+    $(document).ready(function(){
+        var inicia = document.getElementById('id_inicia');
+        var finaliza = document.getElementById('id_finaliza');
+        inicia.type = 'date';
+        finaliza.type = 'date';
+    });
+    
+    </script>
+{% endblock script %}
+    

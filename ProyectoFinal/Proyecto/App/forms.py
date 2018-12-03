@@ -44,3 +44,43 @@ class RegistroProyecto(forms.ModelForm):
             "finaliza",
             "descripcion",
             "ObjGeneral"]
+
+
+class addActivitiForm(forms.ModelForm):
+    actividad_tipo =  (
+        ('Individual','Individual'),
+        ('Multiple','Multiple'))
+
+    estado_tipo = (
+         ('Pendiente','Pendiente'),
+         ('Asignada','Asignada'),
+         ('Cancelada','Cancelada'))
+    actividadName = forms.CharField()
+    type = forms.ChoiceField(choices = actividad_tipo)
+    estado = forms.ChoiceField( choices = estado_tipo)
+    inicia = forms.DateField()
+    finaliza = forms.DateField()
+    encargado = forms.ModelChoiceField(queryset = models_DB.empleados.objects.all())
+    proyecto = forms.ModelChoiceField(queryset = models_DB.RegistroProyecto.objects.all())
+
+    def __init__(self, *args, **kwargs):
+        super(addActivitiForm,self).__init__(*args,**kwargs)
+        self.fields['actividadName'].widget.attrs['class'] = 'form-control'
+        self.fields['actividadName'].widget.attrs['placeholder'] = 'Nombre de actividad'
+        self.fields['type'].widget.attrs['class'] = 'form-control'
+        self.fields['estado'].widget.attrs['class'] = 'form-control'
+        self.fields['inicia'].widget.attrs['class']= 'form-control'
+        self.fields['finaliza'].widget.attrs['class'] = 'form-control'
+        self.fields['encargado'].widget.attrs['class'] = 'form-control'
+        self.fields['proyecto'].widget.attrs['class'] = 'form-control'
+
+    class Meta:
+        model = models_DB.Actividades
+        fields = (
+            'actividadName',
+            'type',
+            'estado',
+            'inicia',
+            'finaliza',
+            'proyecto',
+        )

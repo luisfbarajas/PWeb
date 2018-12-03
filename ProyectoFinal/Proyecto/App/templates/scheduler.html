@@ -11,11 +11,11 @@
 
 
 {% block content %}
-
-<div id="wrapper">
-  <div id="myScheduler"></div>
+<div class="container">
+  <div id="wrapper">
+    <div id="myScheduler"></div>
+  </div>  
 </div>
-
 
 
 {% endblock content %}
@@ -24,37 +24,60 @@
 
 {% block script %}
 <script src="https://cdn.alloyui.com/3.0.1/aui/aui-min.js"></script>
-
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <script>
-YUI().use(
-  'aui-scheduler',
-  function(Y) {
-    var events = [
-    
-  
-     
-    ];
+ 
+  $(document).ready(function(){
+    $.ajax({
+      url:'/apiactividades/',
+      method: 'GET',
+      success: function(data){
 
-    var agendaView = new Y.SchedulerAgendaView();
-    var dayView = new Y.SchedulerDayView();
-    var weekView = new Y.SchedulerWeekView();
-    var monthView = new Y.SchedulerMonthView();
+        data.forEach((element,index) => {
+          console.log(element.actividadName+index);
+        });
+       console.log(data[0].actividadName);
 
-    var eventRecorder = new Y.SchedulerEventRecorder();
 
-    new Y.Scheduler(
-      {
-        activeView: weekView,
-        boundingBox: '#myScheduler',
-        date: new Date(2018, 10, 30),
-        eventRecorder: eventRecorder,
-        items: events,
-        render: true,
-        views: [dayView, weekView, monthView, agendaView]
+    YUI().use(
+      'aui-scheduler',
+      function(Y) {
+        var events = [
+
+          {
+            content: data[0].actividadName,
+            endDate: new Date(data[0].finaliza),
+            startDate: new Date(data[0].inicia)
+          },
+        ];
+
+        var agendaView = new Y.SchedulerAgendaView();
+        var dayView = new Y.SchedulerDayView();
+        var weekView = new Y.SchedulerWeekView();
+        var monthView = new Y.SchedulerMonthView();
+
+        var eventRecorder = new Y.SchedulerEventRecorder();
+
+        new Y.Scheduler(
+          {
+            activeView: weekView,
+            boundingBox: '#myScheduler',
+            date: new Date(2018, 11, 25),
+            eventRecorder: eventRecorder,
+            items: events,
+            render: true,
+            views: [dayView, weekView, monthView, agendaView]
+          }
+        );
       }
     );
-  }
-);
+          }
+        });
+
+      });
 
 </script>
 

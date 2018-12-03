@@ -12,4 +12,5 @@ urlpatterns = [
     path('editCalendar', views.editCalendar, name = 'editCalendar'),
     path('altaProyecto/',views.altaProyecto, name = 'altaProyecto'),
     path('consulta/', views.consulta, name = 'consulta'),
+    path('AddActiviti/',views.addActiviti, name = 'AddActiviti'),
 ]

@@ -16,7 +16,10 @@ class ActividadesSerializer(serializers.ModelSerializer):
             'encargado',
             'actividadName',
             'type',
-            'estado'
+            'estado',
+            'inicia',
+            'finaliza',
+            'proyecto'
         )
 
 class RegistroProyectoSerializer(serializers.ModelSerializer):
