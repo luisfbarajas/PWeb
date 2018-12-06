@@ -28,6 +28,15 @@ def altaProyecto(request):
     return render(request,'altaProyecto.html', {"forma": forma,"actividades":actividades})
 
 def consulta(request):
+    if request.POST:
+        id =  request.POST.get('try')
+        objeto = models_App.RegistroProyecto.objects.get(id = id)
+        if objeto.status:
+            objeto.status = False
+            objeto.save()
+        else:
+            objeto.status = True
+            objeto.save()
     proyectos = models_App.RegistroProyecto.objects.all()
     return render(request,'Consulta.html', {'proyectos':proyectos})
 

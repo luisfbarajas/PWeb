@@ -26,7 +26,7 @@
                     {% for p in proyectos %}
                         <tr>
                             <td>{{p.NombreProyecto}}</td>
-                            <td>{{p.NombreEmpresa}}</td>
+                            <td>{{p.Cliente}}</td>
                             <td>{{p.representante}}</td>
                             <td>{{p.FechaRegistro}}</td>
                             <td>{{p.inicia}}</td>
@@ -35,9 +35,25 @@
                             <td>{{p.userRegistro}}</td>
                             
                             {% if p.status %}
-                                <td class="text-success">Activo</td>
+                               <td class="text-success">                                   
+                                    <form method="POST" id="form" name="forma"> 
+                                        {% csrf_token %}
+                                        <button type="submit" class="btn btn-light text-success" value="{{p.id}}" name="try">
+                                            <i class="fas fa-power-off"> </i>
+                                        </button> 
+                                        Activo 
+                                    </form> 
+                                </td>
                             {% else %}
-                            <td class="text-danger">Terminado</td>
+                            <td class="text-danger">
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <button type="submit" value="{{p.id}}" class="btn btn-light text-danger" name="try">
+                                        <i class="fas fa-power-off"></i>
+                                    </button> 
+                                    Terminado
+                                </form> 
+                            </td>
                             {% endif %}
                                 
                         </tr>
@@ -50,6 +66,16 @@
     
 
 {% block script %}
-    
+    <script>
+    $(document).ready(function(){
+        $('#activo').click(function(e){
+            e.preventDefault();
+            $('#form').submit();
+            console.log('algo');
+          
+
+        });
+    });
+    </script>
 {% endblock script %}
     

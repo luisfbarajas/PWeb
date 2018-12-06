@@ -2,6 +2,10 @@
 
 {% load static %}
 
+{% block title %}
+  Programacion web| Agenda
+{% endblock title %}
+  
 {% block styles %}
   
 
@@ -43,8 +47,9 @@
               var events = [
         
               ];
+              var fecha  = new Date();
               data.forEach((element,index) => {
-                  pruebas = { content: data[index].actividadName,
+                  pruebas = { content: data[index].actividadName+'-'+data[index].proyecto.NombreProyecto,
                   endDate: new Date(data[index].finaliza),
                   startDate: new Date(data[index].inicia)};
 
@@ -62,7 +67,7 @@
                 {
                   activeView: weekView,
                   boundingBox: '#myScheduler',
-                  date: new Date(2018, 11, 25),
+                  date: new Date(fecha.getFullYear(), fecha.getMonth(), fecha.getDate()),
                   eventRecorder: eventRecorder,
                   items: events,
                   render: true,

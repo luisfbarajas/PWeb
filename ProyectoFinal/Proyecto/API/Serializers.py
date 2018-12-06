@@ -9,18 +9,6 @@ class empeladosSerializer(serializers.ModelSerializer):
         'puesto',
         'carrera',
         'antiguedad')
-class ActividadesSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Actividades
-        fields = (
-            'encargado',
-            'actividadName',
-            'type',
-            'estado',
-            'inicia',
-            'finaliza',
-            'proyecto'
-        )
 
 class RegistroProyectoSerializer(serializers.ModelSerializer):
     class Meta:
@@ -37,4 +25,17 @@ class RegistroProyectoSerializer(serializers.ModelSerializer):
             'descripcion',
             'userRegistro',
             'status'
+        )
+class ActividadesSerializer(serializers.ModelSerializer):
+    proyecto = RegistroProyectoSerializer(read_only = True)
+    class Meta:
+        model = Actividades
+        fields = (
+            'encargado',
+            'actividadName',
+            'type',
+            'estado',
+            'inicia',
+            'finaliza',
+            'proyecto'
         )
